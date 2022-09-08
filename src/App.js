@@ -11,38 +11,11 @@ function App() {
     // const [randomColor,setRandomColor]=useState("rgba(235, 64, 52)");
 const [mainColor,setMainColor]=useState('#01949a');
 const element=<FontAwesomeIcon icon={faTwitter}/>;
-// const changeQuoteAndAuthor=()=>{
-//     setQuote("life is soooo boring ");
-//     setAuthor("Also me");
 
-// }
-// const colors=[
-//   '#16a085',
-//   '#27ae60',
-//   '#2c3e50',
-//   '#f39c12',
-//   '#e74c3c',
-//   '#9b59b6',
-//   '#FB6964',
-//   '#342224',
-//   '#472E32',
-//   '#BDBB99',
-//   '#77B1A9',
-//   '#73A857',
-//   '#b7c8c2',
-//   '#eca4b1',
-//   '#e9dac4',
-//   '#cfb2b0',
-//   '#0e86d4',
-//   '#055c9d',
-//   '#003060',
-//   '#01949a'
-
-// ] 
 
 const changeQuoteAndAuthor = async() => {
     try {
-        const resp = await fetch("http://api.quotable.io/random?maxLength=50");
+        const resp = await fetch("https://api.quotable.io/random?maxLength=50");
         const data = await resp.json();
         console.log(data.author, data.content);
         setQuote(data.content);
