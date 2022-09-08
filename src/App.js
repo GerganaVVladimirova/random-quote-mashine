@@ -13,6 +13,7 @@ const [mainColor,setMainColor]=useState('#01949a');
 const element=<FontAwesomeIcon icon={faTwitter}/>;
 
 
+
 const changeQuoteAndAuthor = async() => {
     try {
         const resp = await fetch("https://api.quotable.io/random?maxLength=50");
