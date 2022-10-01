@@ -1,11 +1,14 @@
 
 .App {
+  
   text-align: center;
   #quote-box{
     background-color: white;
+    transition: color 1.5s linear;
     // color: #282c34;
     border-radius: 15px;
     padding: 25px;
+    min-width: 20%;
     #author{
      text-align: end;
      font-weight: 300;
@@ -24,9 +27,28 @@
         display: flex;
         align-self: center;
         justify-content: center;
-
+        transition: background-color 1.5s linear;
        }
-      
+       .buttonFA{
+        min-height: 50px;
+        float: left;
+        min-width: 50px;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        transition: background-color 1.5s linear;
+        border: none;
+       }
+        .buttonFaB{
+          min-height: 35px;
+          min-width: 35px;
+          align-self: center;
+          display: flex;
+          transition: background-color 1.5s linear;
+       } 
       #new-quote{
         float: right;
         padding-right: 4%;
@@ -36,6 +58,7 @@
         border: none;
         cursor: pointer;
         font-size: 17px;
+        transition: background-color 1.5s linear;
       }
     }
      
@@ -49,9 +72,10 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+    transition: background-color 1.53s linear;
+
   }
 }
-
 
 @media only screen and (max-width:600px){
   .App{
@@ -65,8 +89,15 @@
       #new-quote{
         margin-bottom: 10px;
       }
+      #tweet-quote{
+        min-width: 30px;
+        margin: 9px;
+        min-height: 25px;
+        align-self: center;
+        align-content: center;
+       }
     }
   }
-  }
+}
 
 

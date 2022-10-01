@@ -1,16 +1,26 @@
 import React, {useState} from 'react';
 import './App.scss';
 import ARRAY_COLORS from './colors'; 
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faTwitter} from '@fortawesome/free-brands-svg-icons'
+import QUOTES_ARRAY from './quotes'; 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTwitter} from '@fortawesome/free-brands-svg-icons';
+import { FacebookButton} from "react-social";
+import {FaFacebook} from "react-icons/fa";
+
+
+
+const url="https://gerganavvladimirova.github.io/random-quote-mashine/";
+
+
+
 
 
 function App() {
     const [quote,setQuote] =useState("life is strange ");
     const [author,setAuthor]=useState("me");
     // const [randomColor,setRandomColor]=useState("rgba(235, 64, 52)");
-const [mainColor,setMainColor]=useState('#01949a');
-const element=<FontAwesomeIcon icon={faTwitter}/>;
+    const [mainColor,setMainColor]=useState('#01949a');
+
 
 
 
@@ -21,13 +31,24 @@ const changeQuoteAndAuthor = async() => {
         console.log(data.author, data.content);
         setQuote(data.content);
         setAuthor(data.author);
-        let rnd=Math.floor(Math.random()*230);
+        let rnd=Math.floor(Math.random()*160);
         setMainColor(ARRAY_COLORS[rnd])
 
     } catch (e) {
         console.log("error", e)
     }
-}    
+}  ;
+
+
+const shareButtonProps = {
+   
+    network: "Facebook",
+    text: {quote},
+    longtext:{author}
+  };
+
+  
+  
 //  const getRandomColor=()=>{
 // let rnd=Math.floor(Math.random()*20);
 // // setRandomColor(rnd);
@@ -46,23 +67,23 @@ const changeQuoteAndAuthor = async() => {
     
 // }
     return ( 
+      
     <div className = "App" >
         <header className = "App-header" style={{backgroundColor:mainColor, color:mainColor}}>
             <div id="quote-box">
                 {/* <p> Random color is {randomColor}</p> */}
                  <p id="text">{quote}  </p>
                  <p id="author">- {author}</p>
-                 <div className='buttons'>
-                    <a className="button" id="tweet-quote" style={{backgroundColor:mainColor}} 
+                 <div className="buttons">
+                    <a  id="tweet-quote" style={{backgroundColor:mainColor}} 
                     href={encodeURI(`https://twitter.com/intent/tweet?text=${quote} -${author}`)}>
                         <FontAwesomeIcon icon={faTwitter}/>
                     </a>
+                    <FacebookButton quote={"dfgdfgdfgd"} className="buttonFA" style={{backgroundColor:mainColor}} url={url} appId={396415409327195}><FaFacebook className="buttonFaB"  text={quote}/></FacebookButton>
                     <button id="new-quote" style={{backgroundColor:mainColor}} onClick={()=>{changeQuoteAndAuthor();/*getRandomColor()*/}}>Change quote
                     </button>
                  </div>
-
             </div>
-           
         </header> 
          </div>
     );
